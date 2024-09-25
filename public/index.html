@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jury</title>
+    <link rel="stylesheet" href="css/design.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="fancy-title">Stages GE</h1>
+        <h2>Cherchez un étudiant</h2>
+
+        <input type="text" id="searchCIN" placeholder="Saisir n° CIN">
+        <button id="searchButton">Récupérez</button>
+        <div class="result" id="result"></div>
+
+        <label class="lbl">Nom & prénom</label>
+        <div id="etudiant" class="dynamic-label">Indéfini...</div>
+
+        <div id="divJury">
+            <label class="lbl">Membre #1</label>
+            <button id="openJury1">Liste des enseignants</button>
+            <div id="popupJury1" class="popup">
+                <h2>Membre #1</h2>
+                <select id="selectJury1"></select>
+                <button id="saveJury1">Enregistrer</button>
+            </div>
+            <div id="jury1" class="dynamic-label">Indéfini...</div>
+
+            <label class="lbl">Membre #1</label>
+            <button id="openJury2">Liste des enseignants</button>
+            <div id="popupJury2" class="popup">
+                <h2>Membre #2</h2>
+                <select id="selectJury2"></select>
+                <button id="saveJury2">Enregistrer</button>
+            </div>
+            <div id="jury2" class="dynamic-label">Indéfini...</div>
+
+            <button id="submitBtn">Sauvegardez</button>
+        </div>
+    </div>
+
+    <!-- JavaScript code -->
+    <script type="module" src="js/script.js" type="text/javascript"></script>
+    <!-- script src="dist/bundle.js"></script -->
+
+</body>
+
+</html>
