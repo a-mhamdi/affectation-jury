@@ -33,13 +33,13 @@ app.use(express.static('public')); // Serve static files from the public folder
 
 // API endpoint to search for a student by id
 app.get('/api/data', async (req, res) => {
-  const cin = req.query.cin;
-  if (!cin) {
-    return res.status(400).json({ error: 'CIN query parameter is required.' });
+  const identifiant = req.query.identifiant;
+  if (!identifiant) {
+    return res.status(400).json({ error: 'Identifiant query parameter is required.' });
   }
 
   try {
-    const results = await DataModel.find({ cin: cin });
+    const results = await DataModel.find({ identifiant: identifiant });
     res.json(results);
   } catch (error) {
     console.error('Error searching for student:', error);

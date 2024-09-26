@@ -17,9 +17,9 @@ document.querySelector('#saveJury2').addEventListener('click',
     function (event) { saveJury(2, event); });
 
 document.getElementById('searchButton').addEventListener('click', function () {
-    const searchCIN = document.getElementById('searchCIN').value;
+    const searchIdentifiant = document.getElementById('searchIdentifiant').value;
 
-    fetch(`/api/data?cin=${encodeURIComponent(searchCIN)}`)
+    fetch(`/api/data?identifiant=${encodeURIComponent(searchIdentifiant)}`)
         .then(response => response.json())
         .then(data => {
             const resultDiv = document.getElementById('result');
