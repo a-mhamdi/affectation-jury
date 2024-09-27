@@ -2,16 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const path = require('path');
+require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 13579;
+const HOSTNAME = process.env.APP_HOSTNAME;
+const PORT = process.env.APP_PORT;
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/dept-ge', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const uri = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DATABASE}`;
+mongoose.connect(uri);
 
 // Define a schema and model
 const DataSchema = new mongoose.Schema({
@@ -24,8 +23,8 @@ const EnseignantSchema = new mongoose.Schema({
 });
 
 // Create models
-const DataModel = mongoose.model('students', DataSchema);
-const Teachers = mongoose.model('teachers', EnseignantSchema);
+const DataModel = mongoose.model(`${process.env.MONGO_COLLECTION_I}`, DataSchema);
+const Teachers = mongoose.model(`${process.env.MONGO_COLLECTION_II}`, EnseignantSchema);
 
 // Middleware
 app.use(bodyParser.json());
@@ -74,6 +73,6 @@ app.put('/api/data/:id', async (req, res) => {
 
 /* ----- END ----- */
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(PORT, HOSTNAME, () => {
+  console.log(`Server is running on http://${HOSTNAME}:${PORT}`);
 });
