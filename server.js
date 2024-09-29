@@ -63,7 +63,7 @@ app.put('/api/data/:id', async (req, res) => {
 
   try {
 
-    await DataModel.findByIdAndUpdate(studentId, updates, { upsert: true });
+    await DataModel.findByIdAndUpdate(studentId, { $set: updates }, { new: true });
     return res.json({ msg: 'Données enregistrées avec succès !' });
 
   } catch (error) {
