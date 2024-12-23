@@ -48,7 +48,7 @@ document.getElementById('searchButton').addEventListener('click', function () {
 
 document.getElementById('submitBtn').addEventListener('click', function () {
     if (!currentStudentId) {
-        alert('Veuillez d\'abord rechercher un étudiant.');
+        alert('Veuillez d\'abord cherchez un étudiant.');
         return;
     }
 

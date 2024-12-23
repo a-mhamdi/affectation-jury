@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name   : "Jury",
+    name   : "Affectation Jury",
     script : "./server.js"
   }]
 }
