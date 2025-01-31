@@ -102,3 +102,6 @@ document.getElementById('submitBtn').addEventListener('click', function () {
     } catch (error) {
     };
 });
+
+// Disable right-click
+document.addEventListener('contextmenu', e => e.preventDefault());
