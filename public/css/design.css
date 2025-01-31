@@ -18,6 +18,43 @@ body {
     padding: 0;
     line-height: 1.6;
     font-size: 16px;
+    user-select: none;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--text-color);
+    text-align: center;
+    background: linear-gradient(90deg, var(--primary-color), var(--text-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+    width: fit-content;
+}
+
+h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+h1:hover::before {
+    transform: translateX(0);
 }
 
 .container {
@@ -33,19 +70,33 @@ body {
     box-shadow: var(--box-shadow);
 }
 
-.fancy-title {
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 0.5rem;
-    font-size: 2.8rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+/* Enhanced h2 styling */
+h2 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    position: relative;
+    padding-bottom: 0.8rem;
+    margin: 1.5rem 0;
+    font-weight: 600;
+    display: inline-block;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
 }
 
-h2 {
-    color: var(--text-color);
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color) 0%, rgba(22, 160, 40, 0.2) 100%);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    animation: underlineAppear 0.8s ease-out forwards;
+}
+
+h2:hover::after {
+    width: 70%;
 }
 
 label {
@@ -58,7 +109,7 @@ label {
 input[type="password"],
 input[type="text"],
 .dynamic-input {
-    width: 100%;
+    width: 90%;
     padding: 0.75rem;
     margin-bottom: 1rem;
     background-color: var(--input-background);
@@ -132,6 +183,7 @@ button:hover {
 }
 
 .dynamic-label {
+    width: 90%;
     margin: 1rem 0;
     padding: 0.75rem;
     background: var(--input-background);
@@ -180,6 +232,24 @@ button:focus {
     .container {
         margin: 1rem;
         padding: 1rem;
+    }
+
+    .fancy-title {
+        font-size: 2rem;
+    }
+
+    .fancy-title::before,
+    .fancy-title::after {
+        width: 80px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        padding-bottom: 0.6rem;
+    }
+
+    h2::after {
+        height: 2px;
     }
 
     .radio-group {

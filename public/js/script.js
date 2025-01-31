@@ -17,13 +17,13 @@ document.querySelector('#saveJury2').addEventListener('click',
     function (event) { saveJury(2, event); });
 
 document.getElementById('searchButton').addEventListener('click', function () {
+
     const searchIdentifiant = document.getElementById('searchIdentifiant').value;
 
     fetch(`/api/data?identifiant=${encodeURIComponent(searchIdentifiant)}`)
         .then(response => response.json())
         .then(data => {
             const resultDiv = document.getElementById('result');
-            // const nature = document.querySelector('input[name="nature"]:checked');
 
             if (data.length > 0) {
                 resultDiv.innerHTML = '';

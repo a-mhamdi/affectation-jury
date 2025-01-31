@@ -71,8 +71,9 @@ app.put('/api/data/:id', async (req, res) => {
   }
 });
 
-/* ----- END ----- */
 // Start the server
 app.listen(PORT, HOSTNAME, () => {
   console.log(`Server is running on http://${HOSTNAME}:${PORT}`);
 });
+
+/* ----- END ----- */
