@@ -70,7 +70,6 @@ h1:hover::before {
     box-shadow: var(--box-shadow);
 }
 
-/* Enhanced h2 styling */
 h2 {
     font-size: 1.8rem;
     color: var(--text-color);
@@ -227,7 +226,6 @@ button:focus {
     outline-offset: 2px;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
     .container {
         margin: 1rem;
@@ -262,7 +260,6 @@ button:focus {
     }
 }
 
-/* Better visibility for placeholder text */
 ::placeholder {
     color: #888888;
     opacity: 1;

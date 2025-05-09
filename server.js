@@ -28,11 +28,12 @@ const Teachers = mongoose.model(`${process.env.MONGO_COLLECTION_II}`, Enseignant
 
 // Middleware
 app.use(bodyParser.json());
-app.use(express.static('public')); // Serve static files from the public folder
+app.use(express.static('public'));
 
-// API endpoint to search for a student by id
+// Search for a student by id
 app.get('/api/data', async (req, res) => {
   const identifiant = req.query.identifiant;
+
   if (!identifiant) {
     return res.status(400).json({ error: 'Identifiant query parameter is required.' });
   }
@@ -56,24 +57,19 @@ app.get('/api/getJury', async (req, res) => {
   }
 });
 
-// API endpoint to update a student's data
+// Update the candidate's data
 app.put('/api/data/:id', async (req, res) => {
   const studentId = req.params.id;
   const updates = req.body;
 
   try {
-
     await DataModel.findByIdAndUpdate(studentId, { $set: updates }, { new: true });
-    return res.json({ msg: 'Données enregistrées avec succès !' });
-
+    return res.json({ msg: 'Data saved successfully!' });
   } catch (error) {
     res.status(500).json({ error: 'Error updating data.' });
   }
 });
 
-// Start the server
 app.listen(PORT, HOSTNAME, () => {
   console.log(`Server is running on http://${HOSTNAME}:${PORT}`);
 });
-
-/* ----- END ----- */

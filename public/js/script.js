@@ -32,8 +32,7 @@ document.getElementById('searchButton').addEventListener('click', function () {
                 initiation = data[0].initiation;
                 perfectionnement = data[0].perfectionnement;
 
-                currentStudentId = data[0]._id; // Store the current student ID
-
+                currentStudentId = data[0]._id; 
             } else {
                 alert('Aucun(e) étudiant(e) trouvé(e)');
                 resultDiv.innerHTML = 'Aucun(e) étudiant(e) trouvé(e).';
@@ -68,7 +67,7 @@ document.getElementById('submitBtn').addEventListener('click', function () {
             } else {
                 alert('Document verrouillé.');
                 console.log('Value is valid, aborting...');
-                return; // Abort the function
+                return; 
             }
         }
 
