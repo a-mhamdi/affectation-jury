@@ -1,6 +1,6 @@
 # Serveur web pour l'affectation des jurys  #
 
-On récupère les informations des étudiantes depuis une base des données définie et on assigne des jurys de soutenance en conséquence.
+On récupère les informations des étudiants depuis une base des données définie et on assigne les jurys de soutenance en conséquence.
 
 ![Affectation Jury](affectation-jury.png)
 
