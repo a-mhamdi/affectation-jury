@@ -4,8 +4,6 @@ let perfectionnement = null;
 
 import { openJury, saveJury, selectedJury } from './modules/jury.js';
 
-// import { theDate, theTime } from './extra/timing.js';
-
 document.querySelector('#openJury1').addEventListener('click',
     function (event) { openJury(1, event); });
 document.querySelector('#saveJury1').addEventListener('click',
