@@ -101,4 +101,6 @@ document.getElementById('submitBtn').addEventListener('click', function () {
 });
 
 // Disable right-click
-document.addEventListener('contextmenu', e => e.preventDefault());
+if ( process.env.NODE_ENV === 'production' ) {
+    document.addEventListener('contextmenu', e => e.preventDefault())
+};
