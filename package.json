@@ -1,5 +1,5 @@
 {
-  "name": "Jury",
+  "name": "jury",
   "version": "1.0.0",
   "dependencies": {
     "body-parser": "^1.20.3",
