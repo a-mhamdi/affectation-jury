@@ -38,14 +38,14 @@ app.use(express.static('public'));
 
 // Search for a student by id
 app.get('/api/data', async (req, res) => {
-    const identifiant = req.query.identifiant;
+    const cin = req.query.cin;
 
-    if (!identifiant) {
-        return res.status(400).json({ error: 'Identifiant query parameter is required.' });
+    if (!cin) {
+        return res.status(400).json({ error: 'CIN query parameter is required.' });
     }
 
     try {
-        const results = await DataModel.find({ identifiant: identifiant });
+        const results = await DataModel.find({ cin: cin });
         res.json(results);
     } catch (error) {
         console.error('Error searching for student:', error);
